@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "portableallays.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AllayEntityMixin",
+    "ExampleMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}

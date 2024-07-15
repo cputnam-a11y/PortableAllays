@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "portableallays",
+	"version": "${version}",
+	"name": "Portable Allays",
+	"description": "Make Allays Portable",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/portableallays/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "portableallays.PortableAllays"
+		],
+		"client": [
+			"portableallays.PortableAllaysClient"
+		],
+		"fabric-datagen": [
+			"portableallays.PortableAllaysDataGenerator"
+		]
+	},
+	"mixins": [
+		"portableallays.mixins.json",
+		{
+			"config": "portableallays.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
