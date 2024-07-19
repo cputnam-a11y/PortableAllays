@@ -31,6 +31,7 @@ public class ModNetworkHandler {
                         )
         );
     }
+    @SuppressWarnings("EmptyMethod")
     public static void init() {
 
     }

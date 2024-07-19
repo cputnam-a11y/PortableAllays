@@ -7,10 +7,12 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.RotationAxis;
-import portableallays.item.AllayItem;
-import portableallays.item.ModItems;
+import portableallays.component.AllayDataComponent;
+import portableallays.component.ModDataComponentTypes;
 
 public class AllayItemRenderer implements BuiltinItemRendererRegistry.DynamicItemRenderer {
     private MinecraftClient mc;
@@ -40,6 +42,11 @@ public class AllayItemRenderer implements BuiltinItemRendererRegistry.DynamicIte
         matrices.translate(0.5, 0.25, 0.5);
         if (mode != ModelTransformationMode.GUI)
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180));
-        this.entityRenderDispatcher.render(((AllayItem) ModItems.ALLAY_ITEM).getAllay(this.mc.world, stack), 0.0, 0.0, 0.0, 0.0F, 0.0F, matrices, vertexConsumers, light);
+        AllayDataComponent allayData = stack.get(ModDataComponentTypes.ALLAYDATACOMPONENT);
+        if (allayData == null) {
+            assert this.mc.world != null;
+            allayData = AllayDataComponent.fromAllay(new AllayEntity(EntityType.ALLAY, this.mc.world));
+        }
+        this.entityRenderDispatcher.render(allayData.getAllay(this.mc.world, stack), 0.0, 0.0, 0.0, 0.0F, 0, matrices, vertexConsumers, light);
     }
 }
