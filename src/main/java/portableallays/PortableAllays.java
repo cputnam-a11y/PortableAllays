@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import portableallays.component.ModDataComponentTypes;
 import portableallays.item.ModItems;
 import portableallays.network.ModNetworkHandler;
+import portableallays.potion.ModPotions;
 
 public class PortableAllays implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
@@ -23,7 +24,7 @@ public class PortableAllays implements ModInitializer {
 		ModDataComponentTypes.init();
 		ModItems.init();
 		ModNetworkHandler.init();
-
+		ModPotions.init();
 		LOGGER.info("Hello Fabric world!");
 	}
 }

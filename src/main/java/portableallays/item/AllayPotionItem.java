@@ -1,36 +1,45 @@
 package portableallays.item;
 
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.PotionEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.potion.Potion;
-import net.minecraft.registry.RegistryBuilder;
-import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.PotionItem;
 import net.minecraft.stat.Stats;
-import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-
-public class AllayPotionItem extends Item {
+public class AllayPotionItem extends PotionItem {
     public AllayPotionItem() {
         super(new Settings().maxCount(1).maxDamage(5));
     }
-
+    // begin bloat that is required for this to be a valid potion, and implement our functionality...
+    // this is just filler...
     @Override
-    public String getTranslationKey(ItemStack stack) {
-        return Potion.finishTranslationKey(stack.getOrDefault(DataComponentTypes.POTION_CONTENTS, PotionContentsComponent.DEFAULT).potion(), this.getTranslationKey() + ".effect.");
+    public UseAction getUseAction(ItemStack stack) {
+        return UseAction.NONE;
     }
 
+    @Override
+    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+        return stack;
+    }
+
+    @Override
+    public ActionResult useOnBlock(ItemUsageContext context) {
+        return ActionResult.PASS;
+    }
+
+    @Override
+    public int getMaxUseTime(ItemStack stack, LivingEntity user) {
+        return 0;
+    }
+
+    // end bloat
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
@@ -47,23 +56,4 @@ public class AllayPotionItem extends Item {
         return TypedActionResult.success(itemStack, world.isClient());
     }
 
-    @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        super.appendTooltip(stack, context, tooltip, type);
-        PotionContentsComponent potionContentsComponent = (PotionContentsComponent) stack.get(DataComponentTypes.POTION_CONTENTS);
-        if (potionContentsComponent != null) {
-            Objects.requireNonNull(tooltip);
-            potionContentsComponent.buildTooltip(tooltip::add, 1.0F, context.getUpdateTickRate());
-        }
-    }
-
-    public <T> T getRegistryEntryValue(RegistryEntry<T> entry) {
-        return switch (entry) {
-            case RegistryEntry.Direct<T> entry1 -> entry1.value();
-
-            case RegistryBuilder.LazyReferenceEntry<T> entry1 -> entry1.value();
-            case RegistryEntry.Reference<T> entry1 -> entry1.value();
-            default -> throw new IllegalStateException("Unexpected value: " + entry);
-        };
-    }
 }
