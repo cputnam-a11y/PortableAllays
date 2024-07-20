@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "portableallays:item/allay_potion_overlay",
+    "layer1": "portableallays:item/allay_potion"
+  }
+}
