@@ -13,5 +13,7 @@ public class ModScreenHandlers {
             AllayStonecutterScreenHandler.open(player, allay);
         if (craftingStack.isOf(Items.ENDER_CHEST))
             AllayEnderChestScreenHandler.open(player, allay);
+        if (craftingStack.isOf(Items.SHULKER_BOX))
+            AllayShulkerBoxScreenHandler.open(player, allay);
     }
 }
