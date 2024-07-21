@@ -2,7 +2,6 @@ package portableallays.datagen;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.stream.JsonWriter;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
@@ -11,7 +10,6 @@ import net.minecraft.util.Identifier;
 import portableallays.PortableAllays;
 import portableallays.item.ModItems;
 
-import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
@@ -41,6 +39,7 @@ public class ModItemModelProvider extends FabricModelProvider {
     public final void register(Item item, Identifier layer0, Identifier layer1, Model model, BiConsumer<Identifier, Supplier<JsonElement>> writer) {
         model.upload(ModelIds.getItemModelId(item), TextureMap.layered(layer0, layer1), writer);
     }
+    @SuppressWarnings("unused")
     private static final Identifier of(String path) {
         return Identifier.of(PortableAllays.MOD_ID, path);
     }

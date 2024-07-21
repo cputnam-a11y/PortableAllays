@@ -1,7 +1,6 @@
 package portableallays.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import portableallays.tag.ModTags;
