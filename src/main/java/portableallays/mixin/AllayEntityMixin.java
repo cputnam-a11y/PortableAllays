@@ -37,13 +37,12 @@ public abstract class AllayEntityMixin extends PathAwareEntity {
     }
     @Inject(method = "interactMob", at = @At("HEAD"), cancellable = true)
     private void handleCraftingOnRightClick(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
-        AllayEntity $this = ((AllayEntity) (Object) this);
         ItemStack mainHandStack = this.getMainHandStack();
         if (!mainHandStack.isIn(ModTags.ALLAY_VALID_CRAFTING_ITEMS) || player.isSneaking()) {
             return;
         }
         if (!player.getWorld().isClient)
-            ModScreenHandlers.openCrafting(mainHandStack, (ServerPlayerEntity) player, $this);
+            ModScreenHandlers.openCrafting(mainHandStack, (ServerPlayerEntity) player, (AllayEntity) (Object) this);
         cir.setReturnValue(ActionResult.SUCCESS);
     }
     @Inject(method = "tick", at = @At("TAIL"))

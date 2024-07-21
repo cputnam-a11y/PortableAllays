@@ -1,6 +1,7 @@
 package portableallays.screenhandler;
 
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.mob.PiglinBrain;
 import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -10,6 +11,7 @@ import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
@@ -37,6 +39,8 @@ public class AllayCraftingScreenHandler extends CraftingScreenHandler {
             public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
                 if (!(player instanceof ServerPlayerEntity))
                     return null;
+                player.incrementStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
+                PiglinBrain.onGuardedBlockInteracted(player, true);
                 return new AllayCraftingScreenHandler(syncId, playerInventory, allay);
             }
         });

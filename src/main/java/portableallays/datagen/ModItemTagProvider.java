@@ -16,7 +16,16 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        getOrCreateTagBuilder(ModTags.PICKING_ITEMS).add(Items.ANVIL, Items.PAPER);
-        getOrCreateTagBuilder(ModTags.ALLAY_VALID_CRAFTING_ITEMS).add(Items.CRAFTING_TABLE, Items.STONECUTTER);
+        getOrCreateTagBuilder(ModTags.PICKING_ITEMS)
+                .add(
+                        Items.ANVIL,
+                        Items.PAPER
+                );
+        getOrCreateTagBuilder(ModTags.ALLAY_VALID_CRAFTING_ITEMS)
+                .add(
+                        Items.CRAFTING_TABLE,
+                        Items.STONECUTTER,
+                        Items.ENDER_CHEST
+                );
     }
 }

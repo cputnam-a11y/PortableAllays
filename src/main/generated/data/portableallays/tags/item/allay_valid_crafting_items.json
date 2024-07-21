@@ -1,6 +1,7 @@
 {
   "values": [
     "minecraft:crafting_table",
-    "minecraft:stonecutter"
+    "minecraft:stonecutter",
+    "minecraft:ender_chest"
   ]
 }
