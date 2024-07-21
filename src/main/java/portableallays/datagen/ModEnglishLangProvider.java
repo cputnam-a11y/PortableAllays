@@ -33,6 +33,8 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.ALLAY_ITEM, "Allay");
         translationBuilder.add("message.portableallays.dead", "You Cannot Pickup a Dead Allay");
         translationBuilder.add("tooltip.portableallays.empty", "Invalid item! Use spawn egg instead.");
+        translationBuilder.add("container.portableallays.crafting", "Crafting");
+        translationBuilder.add("container.portableallays.stonecutter", "Stonecutter");
         HashSet<String> Visited = new HashSet<>();
         registryLookup.getOptionalWrapper(RegistryKeys.POTION).ifPresent((R) -> R.streamKeys().forEach((key) -> {
             ItemStack stack = new ItemStack(ModItems.ALLAY_POTION_ITEM);
