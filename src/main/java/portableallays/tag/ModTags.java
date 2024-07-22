@@ -12,4 +12,5 @@ public class ModTags {
     public static final TagKey<Item> PICKING_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of(PortableAllays.MOD_ID, "picking_items"));
     // this tag is not safe to add items to...
     public static final TagKey<Item> ALLAY_VALID_CRAFTING_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of(PortableAllays.MOD_ID, "allay_valid_crafting_items"));
+    public static final TagKey<Item> SHULKER_BOXES = TagKey.of(RegistryKeys.ITEM, Identifier.of("c:shulker_boxes"));
 }

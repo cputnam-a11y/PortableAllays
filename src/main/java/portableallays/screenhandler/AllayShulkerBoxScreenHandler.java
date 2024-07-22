@@ -1,13 +1,10 @@
 package portableallays.screenhandler;
 
-import org.jetbrains.annotations.Nullable;
-
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.PiglinBrain;
 import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
@@ -15,15 +12,17 @@ import net.minecraft.screen.ShulkerBoxScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
+import org.jetbrains.annotations.Nullable;
+import portableallays.inventory.AllayShulkerBoxInventory;
 
 public class AllayShulkerBoxScreenHandler extends ShulkerBoxScreenHandler {
     private static final Text CONTAINER_NAME = Text.translatable("container.portableallays.shulkerbox");
     private final AllayEntity allay;
-    @SuppressWarnings("unused")
+    @SuppressWarnings({"unused", "FieldCanBeLocal"})
     private final ItemStack shulkerBox;
 
-    public AllayShulkerBoxScreenHandler(int syncId, PlayerInventory playerInventory, AllayEntity allay, ItemStack shulkerBox) {
-        super(syncId, playerInventory, new SimpleInventory(3 * 9));
+    public AllayShulkerBoxScreenHandler(int syncId, PlayerInventory playerInventory, ServerPlayerEntity player, AllayEntity allay, ItemStack shulkerBox) {
+        super(syncId, playerInventory, new AllayShulkerBoxInventory(player, allay, shulkerBox, 27));
         this.allay = allay;
         this.shulkerBox = shulkerBox;
     }
@@ -39,7 +38,7 @@ public class AllayShulkerBoxScreenHandler extends ShulkerBoxScreenHandler {
 
             @Override
             public Text getDisplayName() {
-                return CONTAINER_NAME;
+                return shulkerBox.getName();
             }
 
         @Nullable
@@ -49,7 +48,7 @@ public class AllayShulkerBoxScreenHandler extends ShulkerBoxScreenHandler {
                     return null;
                 player.incrementStat(Stats.OPEN_SHULKER_BOX);
                 PiglinBrain.onGuardedBlockInteracted(player, true);
-                return new AllayShulkerBoxScreenHandler(syncId, playerInventory, allay, shulkerBox);
+                return new AllayShulkerBoxScreenHandler(syncId, playerInventory,(ServerPlayerEntity) player, allay, shulkerBox);
             }
         });
     }
