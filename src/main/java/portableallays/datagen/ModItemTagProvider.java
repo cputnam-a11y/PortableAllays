@@ -24,7 +24,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(
                         Items.CRAFTING_TABLE,
                         Items.STONECUTTER,
-                        Items.ENDER_CHEST
+                        Items.ENDER_CHEST,
+                        Items.FURNACE
+                        
                 )
                 .addOptionalTag(
                         ModTags.SHULKER_BOXES

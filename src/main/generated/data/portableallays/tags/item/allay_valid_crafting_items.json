@@ -3,9 +3,11 @@
     "minecraft:crafting_table",
     "minecraft:stonecutter",
     "minecraft:ender_chest",
+    "minecraft:furnace",
     {
       "id": "#c:shulker_boxes",
       "required": false
     }
+    
   ]
 }
