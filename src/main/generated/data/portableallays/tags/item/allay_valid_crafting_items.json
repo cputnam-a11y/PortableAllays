@@ -2,6 +2,10 @@
   "values": [
     "minecraft:crafting_table",
     "minecraft:stonecutter",
-    "minecraft:ender_chest"
+    "minecraft:ender_chest",
+    {
+      "id": "#c:shulker_boxes",
+      "required": false
+    }
   ]
 }

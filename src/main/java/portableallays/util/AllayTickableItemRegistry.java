@@ -1,8 +1,6 @@
 package portableallays.util;
 
 import net.minecraft.item.Item;
-import net.minecraft.registry.Registry;
-
 import java.util.HashMap;
 import java.util.Optional;
 

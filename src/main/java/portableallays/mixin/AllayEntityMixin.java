@@ -35,6 +35,7 @@ public abstract class AllayEntityMixin extends PathAwareEntity {
             cir.setReturnValue(ActionResult.SUCCESS);
         }
     }
+    @SuppressWarnings("resource")
     @Inject(method = "interactMob", at = @At("HEAD"), cancellable = true)
     private void handleCraftingOnRightClick(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         ItemStack mainHandStack = this.getMainHandStack();

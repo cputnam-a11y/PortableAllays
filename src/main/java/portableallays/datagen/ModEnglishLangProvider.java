@@ -7,11 +7,11 @@ import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
+import portableallays.PortableAllays;
 import portableallays.item.ModItems;
 
 import java.util.HashSet;
@@ -26,16 +26,15 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
      * Implement this method to register languages.
      *
      * <p>Call {@link TranslationBuilder#add(String, String)} to add a translation.
-     *
      */
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
         translationBuilder.add(ModItems.ALLAY_ITEM, "Allay");
-        translationBuilder.add("message.portableallays.dead", "You Cannot Pickup a Dead Allay");
-        translationBuilder.add("tooltip.portableallays.empty", "Invalid item! Use spawn egg instead.");
-        translationBuilder.add("container.portableallays.crafting", "Crafting");
-        translationBuilder.add("container.portableallays.stonecutter", "Stonecutter");
-        translationBuilder.add("container.portableallays.enderchest", "Ender Chest");
+        translationBuilder.add(makeArbitrary("message", "dead"), "You Cannot Pickup a Dead Allay");
+        translationBuilder.add(makeArbitrary("tooltip", "empty"), "Invalid item! Use spawn egg instead.");
+        translationBuilder.add(makeArbitrary("container", "crafting"), "Crafting");
+        translationBuilder.add(makeArbitrary("container", "stonecutter"), "Stonecutter");
+        translationBuilder.add(makeArbitrary("container", "enderchest"), "Ender Chest");
         HashSet<String> Visited = new HashSet<>();
         registryLookup.getOptionalWrapper(RegistryKeys.POTION).ifPresent((R) -> R.streamKeys().forEach((key) -> {
             ItemStack stack = new ItemStack(ModItems.ALLAY_POTION_ITEM);
@@ -48,5 +47,9 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
                 translationBuilder.add(stack.getTranslationKey(), "Allay " + string);
             }
         }));
+    }
+
+    private String makeArbitrary(String category, String key) {
+        return category + "." + PortableAllays.MOD_ID + "." + key;
     }
 }

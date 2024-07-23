@@ -8,8 +8,8 @@
 		"Me!"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "*",
+		"sources": "https://github.com/cputnam-a11y/PortableAllays"
 	},
 	"license": "MIT",
 	"icon": "assets/portableallays/icon.png",

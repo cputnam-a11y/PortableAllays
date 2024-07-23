@@ -2,12 +2,10 @@ package portableallays;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.fabricmc.fabric.impl.client.rendering.BuiltinItemRendererRegistryImpl;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.util.math.ColorHelper;
 import portableallays.item.ModItems;
-import portableallays.render.AllayItemRenderer;
 
 public class PortableAllaysClient implements ClientModInitializer {
 	@Override
