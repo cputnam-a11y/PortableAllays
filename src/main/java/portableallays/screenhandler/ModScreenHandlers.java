@@ -16,5 +16,7 @@ public class ModScreenHandlers {
             AllayEnderChestScreenHandler.open(player, allay);
         if (craftingStack.isIn(ModTags.SHULKER_BOXES))
             AllayShulkerBoxScreenHandler.open(player, allay);
+        if (craftingStack.isOf(Items.SMITHING_TABLE))
+            AllaySmithingScreenHandler.open(player, allay);
     }
 }

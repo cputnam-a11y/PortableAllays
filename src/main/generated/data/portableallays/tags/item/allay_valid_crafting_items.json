@@ -3,6 +3,7 @@
     "minecraft:crafting_table",
     "minecraft:stonecutter",
     "minecraft:ender_chest",
+    "minecraft:smithing_table",
     {
       "id": "#c:shulker_boxes",
       "required": false
