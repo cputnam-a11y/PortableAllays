@@ -20,5 +20,6 @@ public class ModScreenHandlers {
             AllaySmithingScreenHandler.open(player, allay);
         if (craftingStack.isOf(Items.FURNACE))
             AllayFurnaceScreenHandler.open(player, allay);
+        
     }
 }

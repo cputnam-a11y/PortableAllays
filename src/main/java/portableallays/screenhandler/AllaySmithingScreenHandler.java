@@ -5,7 +5,6 @@ import net.minecraft.entity.mob.PiglinBrain;
 import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.ItemStack;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
@@ -14,7 +13,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
-import portableallays.inventory.AllayShulkerBoxInventory;
 
 public class AllaySmithingScreenHandler extends SmithingScreenHandler {
     private static final Text CONTAINER_NAME = Text.translatable("container.portableallays.upgrade");

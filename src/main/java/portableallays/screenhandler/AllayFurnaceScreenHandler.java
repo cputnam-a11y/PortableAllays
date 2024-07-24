@@ -13,6 +13,7 @@ import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
+
 public class AllayFurnaceScreenHandler extends FurnaceScreenHandler {
     private static final Text TITLE = Text.translatable("container.portableallays.furnace");
     final AllayEntity allay;
