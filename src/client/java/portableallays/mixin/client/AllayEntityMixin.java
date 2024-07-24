@@ -13,7 +13,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import portableallays.network.ModClientNetworkHandler;
 import portableallays.tag.ModTags;
-@SuppressWarnings("unused")
 @Mixin(AllayEntity.class)
 public class AllayEntityMixin extends PathAwareEntity {
 
