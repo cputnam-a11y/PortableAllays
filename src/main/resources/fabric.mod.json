@@ -27,6 +27,7 @@
 	},
 	"mixins": [
 		"portableallays.mixins.json",
+		"portableallays.brain.mixin.json",
 		{
 			"config": "portableallays.client.mixins.json",
 			"environment": "client"
