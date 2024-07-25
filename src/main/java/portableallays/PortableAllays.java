@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import portableallays.brain.ModGenericBrainThings;
 import portableallays.component.ModDataComponentTypes;
 import portableallays.item.ModItems;
 import portableallays.network.ModNetworkHandler;
@@ -25,6 +26,7 @@ public class PortableAllays implements ModInitializer {
 		ModItems.init();
 		ModNetworkHandler.init();
 		ModPotions.init();
+		ModGenericBrainThings.init();
 		LOGGER.info("Hello Fabric world!");
 	}
 }
