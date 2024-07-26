@@ -3,7 +3,10 @@
   "package": "portableallays.brain.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "AllayEntityMixin"
+    "AllayBrainMixin",
+    "AllayEntityAccessor",
+    "AllayEntityMixin",
+    "JustDealWithTheProblems"
   ],
   "injectors": {
     "defaultRequire": 1
