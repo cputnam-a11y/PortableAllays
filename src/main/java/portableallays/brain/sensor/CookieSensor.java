@@ -15,7 +15,6 @@ public class CookieSensor extends Sensor<AllayEntity> {
 
     @Override
     protected void sense(ServerWorld world, AllayEntity entity) {
-        PortableAllays.LOGGER.info("Cookie sensor is sensing");
         entity.getBrain().remember(ModMemoryModuleTypes.COOKIE, entity.getMainHandStack().isOf(Items.COOKIE));
     }
 
