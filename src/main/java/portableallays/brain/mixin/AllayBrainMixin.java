@@ -12,13 +12,13 @@ import java.util.ArrayList;
 
 @Mixin(AllayBrain.class)
 public class AllayBrainMixin {
-    @ModifyExpressionValue(method = "addCoreActivities", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableList;of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;"))
+    @ModifyExpressionValue(method = "addCoreActivities", remap = false, at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableList;of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;"))
     private static ImmutableList<Task<AllayEntity>> addCustomCoreActivities(ImmutableList<Task<AllayEntity>> original) {
         ArrayList<Task<AllayEntity>> mutList = new ArrayList<>(original);
         // add custom core activities here
         return ImmutableList.copyOf(mutList);
     }
-    @ModifyExpressionValue(method = "addIdleActivities", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableList;of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;"))
+    @ModifyExpressionValue(method = "addIdleActivities", remap = false, at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableList;of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;"))
     private static ImmutableList<Task<AllayEntity>> addCustomIdleActivities(ImmutableList<Task<AllayEntity>> original) {
         ArrayList<Task<AllayEntity>> mutList = new ArrayList<>(original);
         // add custom idle activities here
