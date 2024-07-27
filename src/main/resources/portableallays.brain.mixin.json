@@ -4,9 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "AllayBrainMixin",
-    "AllayEntityAccessor",
-    "AllayEntityMixin",
-    "JustDealWithTheProblems"
+    "AllayEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
