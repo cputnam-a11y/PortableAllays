@@ -24,6 +24,7 @@ public class AllayEntityMixin {
         // add custom sensors here
         sensorList.add(ModSensorTypes.COOKIE_SENSOR_SENSOR_TYPE);
         sensorList.add(ModSensorTypes.ANVIL_SENSOR_SENSOR_TYPE);
+        sensorList.add(ModSensorTypes.HOSTILE_ENTITIES_SENSOR);
         return ImmutableList.copyOf(sensorList);
     }
     @ModifyExpressionValue(method = "<clinit>", remap = false, at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableList;of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;"))
@@ -33,6 +34,9 @@ public class AllayEntityMixin {
         // add custom memory modules here
         memoryModuleList.add(ModMemoryModuleTypes.COOKIE);
         memoryModuleList.add(ModMemoryModuleTypes.ANVIL);
+        memoryModuleList.add(MemoryModuleType.MOBS);
+        memoryModuleList.add(MemoryModuleType.VISIBLE_MOBS);
+        memoryModuleList.add(MemoryModuleType.NEAREST_ATTACKABLE);
         return ImmutableList.copyOf(memoryModuleList);
     }
 }
