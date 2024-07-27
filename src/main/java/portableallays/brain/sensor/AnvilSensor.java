@@ -1,6 +1,8 @@
 package portableallays.brain.sensor;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.block.Portal;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.ai.brain.sensor.Sensor;
 import net.minecraft.entity.passive.AllayEntity;
@@ -9,12 +11,18 @@ import net.minecraft.util.math.BlockPos;
 import portableallays.PortableAllays;
 import portableallays.brain.memorymodule.ModMemoryModuleTypes;
 
+import java.util.Optional;
 import java.util.Set;
 
 public class AnvilSensor extends Sensor<AllayEntity> {
 
     @Override
     protected void sense(ServerWorld world, AllayEntity allay) {
+        Optional<LivingEntity> optionalHostile = allay.getBrain().getOptionalRegisteredMemory(MemoryModuleType.NEAREST_ATTACKABLE);
+        if (optionalHostile.isEmpty()) {
+            return;  // If no hostile entity nearby, don't look for anvils.
+        }
+
         BlockPos allayPos = allay.getBlockPos();
 
         int radius = 6;
