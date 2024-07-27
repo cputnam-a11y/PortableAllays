@@ -19,9 +19,11 @@ public class HostileEntitiesSensor extends NearestLivingEntitiesSensor<AllayEnti
     protected void sense(ServerWorld world, AllayEntity allay) {
         super.sense(world, allay);
         findNearestTarget(allay, (entity) -> entity instanceof HostileEntity)
-                .ifPresent(entity -> {
+                .ifPresentOrElse(entity -> {
                     allay.getBrain().remember(MemoryModuleType.NEAREST_ATTACKABLE, entity);
                     PortableAllays.LOGGER.info("Detected hostile entity: {}", entity);
+                }, () -> {
+                    allay.getBrain().forget(MemoryModuleType.NEAREST_ATTACKABLE);
                 });
     }
 
