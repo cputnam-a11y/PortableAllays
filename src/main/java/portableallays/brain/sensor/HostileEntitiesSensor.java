@@ -1,6 +1,5 @@
 package portableallays.brain.sensor;
 
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.ai.brain.sensor.NearestLivingEntitiesSensor;
