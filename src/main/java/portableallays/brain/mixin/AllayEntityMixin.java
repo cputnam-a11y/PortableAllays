@@ -36,7 +36,7 @@ public class AllayEntityMixin {
         memoryModuleList.add(ModMemoryModuleTypes.ANVIL);
         memoryModuleList.add(MemoryModuleType.MOBS);
         memoryModuleList.add(MemoryModuleType.VISIBLE_MOBS);
-        memoryModuleList.add(MemoryModuleType.NEAREST_ATTACKABLE);
+        memoryModuleList.add(MemoryModuleType.ATTACK_TARGET);
         return ImmutableList.copyOf(memoryModuleList);
     }
 }

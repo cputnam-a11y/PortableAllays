@@ -7,6 +7,7 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.server.world.ServerWorld;
 import portableallays.PortableAllays;
+import portableallays.brain.memorymodule.ModMemoryModuleTypes;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -19,10 +20,11 @@ public class HostileEntitiesSensor extends NearestLivingEntitiesSensor<AllayEnti
         super.sense(world, allay);
         findNearestTarget(allay, (entity) -> entity instanceof HostileEntity)
                 .ifPresentOrElse(entity -> {
-                    allay.getBrain().remember(MemoryModuleType.NEAREST_ATTACKABLE, entity);
+                    allay.getBrain().remember(MemoryModuleType.ATTACK_TARGET, entity);
+                    allay.getBrain().remember(ModMemoryModuleTypes.CHECK_HOSTILES_COOLDOWN_TICKS, 200);
                     PortableAllays.LOGGER.info("Detected hostile entity: {}", entity);
                 }, () -> {
-                    allay.getBrain().forget(MemoryModuleType.NEAREST_ATTACKABLE);
+                    allay.getBrain().forget(MemoryModuleType.ATTACK_TARGET);
                 });
     }
 
