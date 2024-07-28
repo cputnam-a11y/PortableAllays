@@ -1,14 +1,12 @@
 package portableallays.brain.sensor;
 
 import net.minecraft.block.Blocks;
-import net.minecraft.block.Portal;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.ai.brain.sensor.Sensor;
 import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-import portableallays.PortableAllays;
 import portableallays.brain.memorymodule.ModMemoryModuleTypes;
 
 import java.util.Optional;
