@@ -5,20 +5,21 @@ import net.minecraft.entity.mob.PiglinBrain;
 import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.screen.FurnaceScreenHandler;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.screen.SmithingScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
-public class AllaySmithingScreenHandler extends SmithingScreenHandler {
-    private static final Text CONTAINER_NAME = Text.translatable("container.portableallays.upgrade");
-    private final AllayEntity allay;
-    public AllaySmithingScreenHandler(int syncId, PlayerInventory playerInventory, ServerPlayerEntity player, AllayEntity allay) {
-        super(syncId, playerInventory, ScreenHandlerContext.create(allay.getWorld(), allay.getBlockPos()));
+
+public class AllayFurnaceScreenHandler extends FurnaceScreenHandler {
+    private static final Text TITLE = Text.translatable("container.portableallays.furnace");
+    final AllayEntity allay;
+
+    public AllayFurnaceScreenHandler(int syncId, PlayerInventory playerInventory, AllayEntity allay) {
+        super(syncId, playerInventory );
         this.allay = allay;
     }
 
@@ -31,7 +32,7 @@ public class AllaySmithingScreenHandler extends SmithingScreenHandler {
         player.openHandledScreen(new NamedScreenHandlerFactory() {
             @Override
             public Text getDisplayName() {
-                return CONTAINER_NAME;
+                return TITLE;
             }
 
             @Nullable
@@ -39,9 +40,9 @@ public class AllaySmithingScreenHandler extends SmithingScreenHandler {
             public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
                 if (!(player instanceof ServerPlayerEntity))
                     return null;
-                player.incrementStat(Stats.INTERACT_WITH_SMITHING_TABLE);
+                player.incrementStat(Stats.INTERACT_WITH_FURNACE);
                 PiglinBrain.onGuardedBlockInteracted(player, true);
-                return new AllaySmithingScreenHandler(syncId, playerInventory, (ServerPlayerEntity) player, allay);
+                return new AllayFurnaceScreenHandler(syncId, playerInventory, allay);
             }
         });
     }
