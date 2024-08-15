@@ -13,16 +13,17 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
+import portableallays.component.BackingInventoryComponent;
 import portableallays.inventory.AllayShulkerBoxInventory;
 
+@SuppressWarnings({"unused", "FieldCanBeLocal"})
 public class AllayShulkerBoxScreenHandler extends ShulkerBoxScreenHandler {
     private static final Text CONTAINER_NAME = Text.translatable("container.portableallays.shulkerbox");
     private final AllayEntity allay;
-    @SuppressWarnings({"unused", "FieldCanBeLocal"})
     private final ItemStack shulkerBox;
 
     public AllayShulkerBoxScreenHandler(int syncId, PlayerInventory playerInventory, ServerPlayerEntity player, AllayEntity allay, ItemStack shulkerBox) {
-        super(syncId, playerInventory, new AllayShulkerBoxInventory(player, allay, shulkerBox, 27));
+        super(syncId, playerInventory, BackingInventoryComponent.getOrDefault(shulkerBox, () -> new AllayShulkerBoxInventory(player, allay, shulkerBox, 27)));
         this.allay = allay;
         this.shulkerBox = shulkerBox;
     }

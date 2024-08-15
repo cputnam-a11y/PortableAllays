@@ -8,6 +8,7 @@ import portableallays.component.ModDataComponentTypes;
 import portableallays.item.ModItems;
 import portableallays.network.ModNetworkHandler;
 import portableallays.potion.ModPotions;
+import portableallays.tick.ModAllayTickProviders;
 
 public class PortableAllays implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
@@ -25,6 +26,7 @@ public class PortableAllays implements ModInitializer {
 		ModItems.init();
 		ModNetworkHandler.init();
 		ModPotions.init();
+		ModAllayTickProviders.init();
 		LOGGER.info("Hello Fabric world!");
 	}
 }
