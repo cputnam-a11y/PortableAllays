@@ -5,7 +5,8 @@ import portableallays.util.AllayTickableItemRegistry;
 
 public class ModAllayTickProviders {
     static {
-        AllayTickableItemRegistry.register(Items.FURNACE, ((stack, allay) -> allay.setFireTicks(20)));
+        AllayTickableItemRegistry.register(Items.FURNACE, ((stack, allay) -> {
+        }));
     }
     public static void init() {}
 }
