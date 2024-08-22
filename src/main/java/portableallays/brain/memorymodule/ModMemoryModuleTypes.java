@@ -13,6 +13,7 @@ import java.util.Optional;
 public class ModMemoryModuleTypes {
     public static final MemoryModuleType<Boolean> COOKIE = register("cookie", Codec.BOOL);
     public static final MemoryModuleType<BlockPos> ANVIL = register("anvil", BlockPos.CODEC);
+
     public static void init() {}
     private static <U> MemoryModuleType<U> register(String id) {
         return  Registry.register(Registries.MEMORY_MODULE_TYPE, Identifier.of(PortableAllays.MOD_ID, id), new MemoryModuleType<>(Optional.empty()));
