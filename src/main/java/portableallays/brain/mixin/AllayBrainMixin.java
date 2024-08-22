@@ -8,13 +8,11 @@ import net.minecraft.entity.ai.brain.task.Task;
 import net.minecraft.entity.ai.brain.task.WalkTowardsPosTask;
 import net.minecraft.entity.passive.AllayBrain;
 import net.minecraft.entity.passive.AllayEntity;
-import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import portableallays.PortableAllays;
 import portableallays.brain.memorymodule.ModMemoryModuleTypes;
 
 import java.util.ArrayList;
