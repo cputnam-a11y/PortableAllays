@@ -17,11 +17,25 @@ import java.util.stream.Stream;
 
 public class HostileEntitiesSensor extends NearestLivingEntitiesSensor<AllayEntity> {
     protected void sense(ServerWorld world, AllayEntity allay) {
+        Optional<LivingEntity> optionalTarget = allay.getBrain().getOptionalRegisteredMemory(MemoryModuleType.ATTACK_TARGET);
+        if (optionalTarget.isPresent()) {
+            // If we found a hostile entity in the last 10 seconds, we will not look for new hostile entities
+            LivingEntity target = optionalTarget.get();
+            if (allay.getBrain().getMemoryExpiry(MemoryModuleType.ATTACK_TARGET) <= 40 && target.isAlive()) {
+                // If the previous target is still alive, refresh reset timer
+                allay.getBrain().remember(MemoryModuleType.ATTACK_TARGET, target, 200);
+                PortableAllays.LOGGER.info("Target is still alive, refreshing timer");
+            } else {
+                PortableAllays.LOGGER.info("Remembering attack target for {} ticks", allay.getBrain().getMemoryExpiry(MemoryModuleType.ATTACK_TARGET));
+            }
+            return;
+        }
+
+
         super.sense(world, allay);
         findNearestTarget(allay, (entity) -> entity instanceof HostileEntity)
                 .ifPresentOrElse(entity -> {
-                    allay.getBrain().remember(MemoryModuleType.ATTACK_TARGET, entity);
-                    allay.getBrain().remember(ModMemoryModuleTypes.CHECK_HOSTILES_COOLDOWN_TICKS, 200);
+                    allay.getBrain().remember(MemoryModuleType.ATTACK_TARGET, entity, 200);
                     PortableAllays.LOGGER.info("Detected hostile entity: {}", entity);
                 }, () -> {
                     allay.getBrain().forget(MemoryModuleType.ATTACK_TARGET);
