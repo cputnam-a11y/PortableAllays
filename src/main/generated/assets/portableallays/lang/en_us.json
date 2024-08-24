@@ -3,6 +3,8 @@
   "container.portableallays.enderchest": "Ender Chest",
   "container.portableallays.stonecutter": "Stonecutter",
   "container.portableallays.upgrade": "Upgrade Gear",
+  "container.portableallays.heirloom": "Loom",
+  "container.portableallays.mappingmenu": "Cartography Table",
   "item.portableallays.allay": "Allay",
   "item.portableallays.allay_potion.effect.awkward": "Allay Awkward Potion",
   "item.portableallays.allay_potion.effect.fire_resistance": "Allay Potion of Fire Resistance",
