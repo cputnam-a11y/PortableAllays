@@ -1,6 +1,9 @@
 {
   "container.portableallays.crafting": "Crafting",
   "container.portableallays.enderchest": "Ender Chest",
+  "container.portableallays.furnace": "Furnace",
+  "container.portableallays.heirloom": "Loom",
+  "container.portableallays.mappingmenu": "Cartography Table",
   "container.portableallays.stonecutter": "Stonecutter",
   "container.portableallays.upgrade": "Upgrade Gear",
   "item.portableallays.allay": "Allay",

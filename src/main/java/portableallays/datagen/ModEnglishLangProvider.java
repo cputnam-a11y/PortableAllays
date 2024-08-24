@@ -37,6 +37,8 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
         translationBuilder.add(makeArbitrary("container", "enderchest"), "Ender Chest");
         translationBuilder.add(makeArbitrary("container", "upgrade"), "Upgrade Gear");
         translationBuilder.add(makeArbitrary("container", "furnace"), "Furnace");
+        translationBuilder.add(makeArbitrary("container", "heirloom"), "Loom");
+        translationBuilder.add(makeArbitrary("container", "mappingmenu"), "Cartography Table");
         HashSet<String> Visited = new HashSet<>();
         registryLookup.getOptionalWrapper(RegistryKeys.POTION).ifPresent((R) -> R.streamKeys().forEach((key) -> {
             ItemStack stack = new ItemStack(ModItems.ALLAY_POTION_ITEM);
