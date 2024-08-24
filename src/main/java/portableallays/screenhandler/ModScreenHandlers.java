@@ -20,6 +20,9 @@ public class ModScreenHandlers {
             AllaySmithingScreenHandler.open(player, allay);
         if (craftingStack.isOf(Items.FURNACE))
             AllayFurnaceScreenHandler.open(player, allay);
-        
+        if (craftingStack.isOf(Items.LOOM))
+            AllayLoomScreenHandler.open(player, allay);
+        if (craftingStack.isOf(Items.CARTOGRAPHY_TABLE))
+            AllayCartographyTableScreenHandler.open(player, allay);
     }
 }
